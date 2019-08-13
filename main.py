@@ -1,37 +1,65 @@
-gamer = {'name': input('Как вас зовут?\n'),
-         'age': int(input('Сколько тебе лет?\n')),
-         'sex': '',
-         'pet_name': '',
-         }
+# coding: utf-8
 
-if gamer['age'] < 18:
-    if gamer['name'] == 'Вася':
-        print(gamer['name'], 'тубу нельзя играть, потому что ты Вася и молодой')
-    else:
-        print('Тебе нельзя играть')
-elif gamer['name'] == 'Петя':
-    print('Ты плохой')
-else:
-    print('Добро пожаловать в Игру')
+'''
+ ______   ______     __  __     ______      ______     ______   ______
+/\__  _\ /\  ___\   /\_\_\_\   /\__  _\    /\  == \   /\  == \ /\  ___\
+\/_/\ \/ \ \  __\   \/_/\_\/_  \/_/\ \/    \ \  __<   \ \  _-/ \ \ \__ \
+   \ \_\  \ \_____\   /\_\/\_\    \ \_\     \ \_\ \_\  \ \_\    \ \_____\
+    \/_/   \/_____/   \/_/\/_/     \/_/      \/_/ /_/   \/_/     \/_____/
 
-print('Я могу сосчитать твой возраст')
+'''
 
-i = 0
-while i <= gamer['age']:
-    print(i)
-    i += 1
+if __name__ == "__main__":
 
-    if i > 22:
-        print('замучился считать')
+    while True:
+
+        print("Text RPG")
+        gamer = {'name': input('Как тебя зовут?\n'),
+                 'age': int(input('Сколько тебе лет?\n')),
+                 'sex': input('Ты мальчик или девочка? (М/Д)\n'),
+                 'pet_name': input('Напиши имя твоего питомца:\n'),
+                 'gambler_bool': True if input('Любите ли вы игры? (Да/Нет)\n') == 'Да' else False,
+                 }
+
+        if gamer['age'] < 18:
+                print('Тебе нельзя играть')
+                break
+
+        elif gamer['age'] > 90:
+            print("Для тебя это может быть утомительно!")
+
+            for i in range(2):
+                if input('Вы точно хотите играть? (Да/Нет)\n') == 'Да':
+                    pass
+                else:
+                    print('До свидания, ', gamer['name'], ' !')
+                    break
+
+            print('Хорошо тогда начнем игру!')
+
+        else:
+            print('Добро пожаловать в Игру, ', gamer['name'], ' !')
+
+        '''    Блока нет в задании                                                              
+        print('Я могу сосчитать твой возраст')
+
+        i = 0
+        while i <= gamer['age']:
+            print(i)
+            i += 1
+
+            if i > 22:
+                print('замучился считать')
+                break
+        else:
+            print('Сработал else в цикле')
+        '''
+
+        print('Я могу назвать буквы алфавита, которых нет в твоем имени. и Произнести их.')
+
+        letters = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюя'
+        for char in letters:
+            if char not in gamer['name'].lower():
+                print(char)
+
         break
-else:
-    print('Сработал else в цикле')
-
-print('А еще я могу произнести имя по буквам')
-
-i = 0
-for char in gamer['name']:
-    i += 1
-    if i == 3:
-        continue
-    print(char)
