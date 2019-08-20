@@ -125,3 +125,4 @@ if __name__ == "__main__":
                     continue
 
         print('Поздравляю, ты выиграл! Сделано ходов:', moves)
+        break
